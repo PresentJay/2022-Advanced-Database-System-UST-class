@@ -2,11 +2,12 @@
 
 ### Licensed: PresentJay (정현재, UST-ETRI)
 
-해당 프로젝트 내 모든 코드는 자체 제작되었고, 관련 문의는 presentj94@gmail.com 또는 presentj94@etri.re.kr 으로 가능합니다.
+해당 프로젝트 내 모든 코드는 자체 제작되었고, 저작권은 "정현재"에게 있습니다.
 
-또는 git Issue로 남겨주셔도 됩니다.
+관련 문의는 presentj94@gmail.com 또는 presentj94@etri.re.kr 또는 [git Issue](https://github.com/PresentJay/2022-Advanced-Database-System-UST-class/issues "이슈")로 남겨주셔도 됩니다.
 
 ---
+
 ## Prerequisite
 
 - Docker
@@ -30,9 +31,7 @@ sh start.sh --help
 sh start.sh -u
 ```
 
-(Result)
-
-[alt docker-running](/settings/images/docker-running-state.png)
+![alt docker-running](/settings/images/docker-running-state.png)
 
 
 [2] access to mariaDB
@@ -62,7 +61,7 @@ sh start.sh -l
 
 ---
 
-### version note
+## version note
 
 - v1
 
