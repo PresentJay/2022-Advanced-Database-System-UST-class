@@ -15,7 +15,7 @@ help() {
 clean() {
     test=$(docker volume ls | grep $1 | awk "{print \$2}")
     if [[ -n ${test} ]]; then
-        docker volume rm ${test}
+        docker volume rm ${test} && echo "[SUCCESS] volume of ${test} was cleaned !" || echo "[WARNING] something error was occured while cleaning"
     else
         echo "no container of $1. please confirm!"
     fi
