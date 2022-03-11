@@ -8,7 +8,7 @@
 
 ---
 
-## Prerequisite
+# Prerequisite
 
 - Docker
 - Visual Studio Code
@@ -25,14 +25,14 @@
         - MySQL v4.7.8
 
 ---
-## QuickStarts
+# QuickStarts
 
-[0] get helps of mariadb container
+## [0] get helps of mariadb container
 ```Shell
 sh start.sh --help
 ```
 
-[1] start mariaDB container
+## [1] start mariaDB container
 
 <mark>if you want to change password or so, please check in "mariadDB"</mark>
 
@@ -43,38 +43,38 @@ sh start.sh -u
 ![alt docker-running](/settings/images/docker-running-state.png)
 
 
-[2] access to mariaDB using vscode extension: MySQL
+## [2] access to mariaDB using vscode extension: MySQL
 
 <mark>initial data is in below (table:test, user:testuser, password:testpw</mark>
 ![alt mysql_extension_connection](/settings/images/mysql-connected.png)
 <mark>if you want to change secrets, copy&paste the /settings/secrets/initial.env</mark>
 
-** !!! NEVER CHANGE "initial.env" !!!**
+## ** !!! NEVER CHANGE "initial.env" !!!**
 
 <mark>rename and change data, then change env_file to renamed env file!</mark>
 
 ---
 
-## Usages
+# Usages
 
-[*] stop mariadb container (retaining data)
+## [*] stop mariadb container (retaining data)
 ```Shell
 sh start.sh -d
 ```
 
-[*] cleaning data of mariadb container (must be after stop container)
+## [*] cleaning data of mariadb container (must be after stop container)
 ```Shell
 sh start.sh -c
 ```
 
-[*] show logs of mariaDB container
+## [*] show logs of mariaDB container
 ```Shell
 sh start.sh -l
 ```
 
 ---
 
-## version note
+# version note
 
 - v1
 
