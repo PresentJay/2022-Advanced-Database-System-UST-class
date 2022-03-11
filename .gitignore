@@ -1,6 +1,9 @@
 tmp/*
 !tmp/readme.md
 
+settings/secrets/*
+!settings/secrets/initial.env
+
 # Created by https://www.toptal.com/developers/gitignore/api/visualstudiocode,database
 # Edit at https://www.toptal.com/developers/gitignore?templates=visualstudiocode,database
 

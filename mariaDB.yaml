@@ -5,13 +5,10 @@ services:
     restart: always
     ports:
       - 3306:3306
-    environment:
-      - MYSQL_ROOT_PASSWORD=example
-      - MYSQL_DATABASE=test
-      - MYSQL_USER=testuser
-      - MYSQL_PASSWORD=testpassword
+    env_file:
+      - ./settings/secrets/initial.env
     volumes:
       - mariadb-data:/var/lib/mysql
-      - ./settings/utf8_set:/etc/mysql/conf.d
+      - ./settings/conf:/etc/mysql/conf.d
 volumes:
   mariadb-data:
