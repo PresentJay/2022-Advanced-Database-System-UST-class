@@ -11,5 +11,7 @@ services:
       - MYSQL_USER=testuser
       - MYSQL_PASSWORD=testpassword
     volumes:
-      - ./tmp:/var/lib/mysql
+      - mariadb-data:/var/lib/mysql
       - ./utf8_set:/etc/mysql/conf.d
+volumes:
+  mariadb-data:

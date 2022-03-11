@@ -4,7 +4,7 @@ help() {
     echo "\n\n(bash | sh | ..some_command_shell..) start.sh [OPTIONS] ..."
     echo "\t\t    -h, --help \t print help messages"
     echo "\t\t    -u, --up \t start mariaDB container"
-    echo "\t\t    -c, --clean \t clean mariaDB container"
+    echo "\t\t    -c, --clean \t clean volume of mariaDB container"
     echo "\t\t    -x, --exec \t access into mariaDB container"
     echo "\t\t    -d, --down \t pause mariaDB container"
     echo "\t\t    -l, --log \t show logs of mariaDB container"
@@ -31,7 +31,7 @@ while getopts hucxdl-: OPT; do
         h | help) help ;;
         u | up) docker-compose -f ./mariaDB.yaml -p mariadb up -d ;; 
         c | clean) clean mariadb ;;
-        x | exec) docker exec mariadb -it sh ;; 
+        x | exec) docker exec -it $(docker ps | grep mariadb | awk "{print \$11}") sh ;; 
         d | down) docker-compose -f ./mariaDB.yaml -p mariadb down ;; 
         l | log) docker-compose -f ./mariaDB.yaml -p mariadb logs -f ;; 
         ??*) help ;;
