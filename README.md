@@ -11,9 +11,18 @@
 ## Prerequisite
 
 - Docker
+- Visual Studio Code
+    - using extension: MySQL
 
-(Tested) macOS Monterey v12.2.1
-(Tested) Docker Desktop 4.3.0
+![alt mysql_extension](/settings/images/vscode-extension-mysql.png)
+
+
+[Tested]
+- macOS Monterey v12.2.1
+- Docker Desktop 4.3.0
+- Visual Studio Code version 1.65
+    - Extension
+        - MySQL v4.7.8
 
 ---
 ## QuickStarts
@@ -34,11 +43,15 @@ sh start.sh -u
 ![alt docker-running](/settings/images/docker-running-state.png)
 
 
-[2] access to mariaDB
+[2] access to mariaDB using vscode extension: MySQL
 
 <mark>initial data is in below (table:test, user:testuser, password:testpw</mark>
-![alt ]
+![alt mysql_extension_connection](/settings/images/mysql-connected.png)
+<mark>if you want to change secrets, copy&paste the /settings/secrets/initial.env</mark>
 
+** !!! NEVER CHANGE "initial.env" !!!**
+
+<mark>rename and change data, then change env_file to renamed env file!</mark>
 
 ---
 
