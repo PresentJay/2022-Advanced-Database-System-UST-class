@@ -1,8 +1,9 @@
 tmp/*
 !tmp/readme.md
 
-lectureNote/*
-!lectureNote/readme.md
+LectureNote/*/*.md
+!LectureNote/readme.md
+!LectureNote/*.sql
 
 settings/secrets/*
 !settings/secrets/initial.env
