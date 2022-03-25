@@ -1,6 +1,9 @@
 tmp/*
 !tmp/readme.md
 
+lectureNote/*
+!lectureNote/readme.md
+
 settings/secrets/*
 !settings/secrets/initial.env
 
