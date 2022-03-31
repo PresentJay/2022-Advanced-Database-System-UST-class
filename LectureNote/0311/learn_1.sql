@@ -30,3 +30,19 @@ CREATE TABLE MovieStar ( name CHAR(30), address VARCHAR(255), gender CHAR(1) DEF
 ALTER TABLE MovieStar ADD phone CHAR(16);
 ALTER TABLE MovieStar DROP COLUMN birthdate;
 ALTER TABLE MovieStar ADD phone CHAR(16) DEFAULT 'unlisted';
+ALTER TABLE MovieStar RENAME COLUMN birthdate TO 'birthdatetime';
+
+-- Database Modification
+
+-- 삽입(INSERT)
+INSERT INTO StarsIn(movietitle, movieyear, starname) values ('The Maltese Falcon', 1942, 'Sydney Greenstreet');
+INSERT INTO StarsIn values ('The Maltese Falcon', 1942, 'Sydney Greenstreet');
+
+-- 삭제(DELETE)
+DELETE
+FROM StarsIn
+WHERE movietitle = 'The Maltese Falcon'
+    AND movieyear=1942
+    AND starname='Sydney Greenstreet';
+
+-- 변경(UPDATE)
