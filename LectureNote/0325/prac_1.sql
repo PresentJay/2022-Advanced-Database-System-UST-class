@@ -14,8 +14,8 @@ WHERE movietitle like '%World%' OR movieyear=1990;
 
 SELECT  name
 FROM MovieExec
-WHERE networth>10000000
+WHERE networth>10000000;
 
 SELECT  *
 FROM MovieStar
-WHERE address like '%'
+WHERE address like '%Hollywood%' OR gender='M';
