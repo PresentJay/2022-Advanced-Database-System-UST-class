@@ -33,3 +33,6 @@ WHERE certID=producerID
     AND title=movietitle
     AND year=movieyear
     AND starname='Harrison Ford';
+
+-- 둘 이상의 영화에 사용된 영화 제목을 찾아라
+-- Attribute 이름에 대한 scoping rule에 주목할 것
