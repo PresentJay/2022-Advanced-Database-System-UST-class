@@ -1,3 +1,7 @@
+show databases;
+
+use Movie_db;
+
 -- crossjoin
 SELECT  *
 FROM MovieStar
