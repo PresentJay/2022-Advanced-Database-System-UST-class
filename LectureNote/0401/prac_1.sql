@@ -121,6 +121,14 @@ WHERE model = (
     FROM PC
     WHERE speed>=1500);
 
+-- solve-a)
+SELECT  DISTINCT(maker)
+FROM Product
+WHERE model = (
+    SELECT  model
+    FROM PC
+    WHERE speed>=1500);
+
 -- b) 가장 비싼 프린터를 찾아라
 SELECT  model
 FROM Printer
@@ -138,6 +146,18 @@ WHERE model = (
         AND price = (
             SELECT  MIN(price)
             FROM Printer));
+
+-- solve-c)
+SELECT  maker
+FROM product
+WHERE model IN (
+    SELECT model
+    FROM printer
+    WHERE color=TRUE
+      AND price = (
+        SELECT MIN (price)
+        FROM printer
+        WHERE color=TRUE));
 
 -- d) 가장 작은 메모리 용량을 지닌 것 중 가장 빠른 프로세서를 지닌 PC를 생산하는 PC 제조업체를 찾아라
 SELECT  maker
@@ -161,3 +181,5 @@ WHERE model=(
             FROM PC)
         )
     );
+
+-- solve-d)
