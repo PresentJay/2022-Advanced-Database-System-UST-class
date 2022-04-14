@@ -87,3 +87,55 @@
         - edge에 숫자를 기입하는 방식?
             - 화살표는 <= 1 ([화살표: 최대 1개] 연결 or 비연결)
             - 둥근 화살표는 = 1 ([화살표: 최대 1개] [둥근: 참조무결성] 무조건 연결)
+
+## 관계 모델의 기초
+
+- `Relation`: 2차원 Table (각 요소들이 원자적 값을 가지는 Tuple들의 집합)
+    - `Column`: 릴레이션의 각 열
+    - `Attribute`:  일반적으로 Attribute는 Column의 Header(이름)를 말함
+        - Attribute의 순서가 변경되어도 Relation은 동일하게 취급
+    - `Tuple`: 릴레이션에서 각 애트리뷰트에 대한 하나의 요소들을 순서대로 포함 (헤더부분 제외)
+        - Tuple의 순서가 변경되어도 Relation은 동일하게 취급
+- `Schema`: Relation의 Attribute 집합, RDB의 설계는 하나 이상의 Relation Schema로 구성
+    - Relation Schema들의 집합을 RDB Schema 또는 DB Schema라고 부름
+- `Domain`: Relation의 각 Attribute에 연관된 Type (ex. string 등)
+    - Relation Model에서는 Attribute의 값이 Record구조, 집합, 리스트, 배열 등과 같이 더 작은 요소로 분해될 수 있는 타입을 허용하지 않음 (튜플의 각 요소는 원자적)
+
+## ER에서 Relation 설계로의 변환
+
+1. `Design Phase`
+    - 어떤 정보가 저장될 것인가?
+    - 정보 요소들이 다른 정보와 어떤 방식으로 연결될 것인가?
+    - 어떤 제약을 둘 것인가?
+2. `Implementation Phase`
+    - `Design Phase` 이후 실제 DBMS를 이용한 구현
+    - 관계 모델로 변환 (Relation 개념만 이용)
+3. `ER 설계를 RDB Schema로 변경`
+    - 각 Entity 집합을 동일한 Attribute 집합을 갖는 Relation으로 변경
+    - 관계성이 연결되어 있는 엔티티 집합들에 대한 Key들을 Attribute로 갖는 Relation으로 변환
+    - 특별한 경우 고려
+        - `Is a` 관계성과 서브클래스들은 주의해서 사용
+        - 경우에 따라 Relation들을 합치는 것이 좋음
+            - Entity 집합에 대한 Relation과 다대일 관계성을 지니는 Relation을 합칠 수 있음
+4. `Entity` 집합을 `Relation`으로 변환
+    - Weak Entity 집합이 아닌 Entity 집합에 대하여, 동일한 Attribute들을 갖는 같은 이름의 Relation을 생성
+5. `관계성`을 `Relation`으로 변환
+    - `관계성 R`에 연결된 Entity 집합들의 Key Attribute들을 R에 대한 Relation의 Attribute들로 생성
+    - `관계성`이 `Attribute`를 가지면, 이 Attribute도 Relation R의 Attribute로 생성
+    - 같은 이름을 갖는 Attribute가 두 번 이상 나타날 경우, 중복을 피하기 위해 Attribute의 이름을 변경
+6. `Relation`의 결합: 어떤 관계성에 대해서는 테이블을 생성할 필요가 없음
+    - 다대일 관계성의 경우
+      - S(S_key, s2), T(T_key, t2), R(S_key, T_key, r1) -> S(S_key,s2, r1, T_key), T(T_key, t2)
+        - R에 대한 테이블을 생성하는 대신 S에 R의 모든 Attribute와 T key를 포함
+    - 일대일 관계성의 경우
+      - R Table을 생략하는 경우 양쪽 중 하나로 편입
+      - R Table + 다른 쪽 테이블을 생성하는 대신 모든 것을 합쳐서 표현 가능
+    - 다대다 관계성의 경우 중복발생때문에 좋지 않은 설계임
+
+## 보이스-코드 정규형 (BCNF)
+
+- `Anomaly` (이상)
+  - Relation의 설계를 잘못하였을 때 발생하는 문제
+- `Redundancy` (중복성)
+  - 다중값(multi-valued) 관계성으로 인한 중복성
+    - Attribute 하나를 다양한 값으로 표현하기 위해, 다른 Attribute값들이 중복 생성되는 경우
