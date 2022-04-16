@@ -1,14 +1,14 @@
 #!/bin/sh
 
 help() {
-    echo "\n\n(bash | sh | ..some_command_shell..) start.sh [OPTIONS] ..."
-    echo "\t\t    -h, --help \t print help messages"
-    echo "\t\t    -u, --up \t start mariaDB container"
-    echo "\t\t    -c, --clean \t clean volume of mariaDB container"
-    echo "\t\t    -x, --exec \t access into mariaDB container"
-    echo "\t\t    -d, --down \t pause mariaDB container"
-    echo "\t\t    -l, --log \t show logs of mariaDB container"
-    echo "\n"  
+    echo -e "\n\n(bash | sh | ..some_command_shell..) start.sh [OPTIONS] ..."
+    echo -e "\t\t    -h, --help \t print help messages"
+    echo -e "\t\t    -u, --up \t start mariaDB container"
+    echo -e "\t\t    -c, --clean \t clean volume of mariaDB container"
+    echo -e "\t\t    -x, --exec \t access into mariaDB container"
+    echo -e "\t\t    -d, --down \t pause mariaDB container"
+    echo -e "\t\t    -l, --log \t show logs of mariaDB container"
+    echo -e "\n"  
     exit 1
 }
 
